@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SMART QR</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
 
@@ -33,186 +30,145 @@ direction:rtl;
 .main{
 position:relative;
 min-height:100vh;
-background:
-linear-gradient(180deg,#050505 0%,#111 25%,#f5f5f5 25%,#ffffff 75%,#111 75%,#000 100%);
+background:#fff;
+overflow:hidden;
 }
 
-.top-shape{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:280px;
-background:#050505;
-border-bottom-left-radius:50% 18%;
-border-bottom-right-radius:50% 18%;
-border-bottom:5px solid #ffc400;
-}
-
-.bottom-shape{
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-height:180px;
-background:#050505;
-border-top-left-radius:50% 18%;
-border-top-right-radius:50% 18%;
-border-top:5px solid #ffc400;
-}
-
-.content{
+.top-section{
 position:relative;
-z-index:5;
+background:#050505;
 padding:40px 20px 120px;
+border-bottom-left-radius:50% 12%;
+border-bottom-right-radius:50% 12%;
+border-bottom:4px solid #ffc400;
 text-align:center;
 }
 
-.logo-icon{
-width:140px;
-height:140px;
+.logo{
+width:220px;
 margin:auto;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-margin-top:10px;
-}
-
-.logo-icon img{
-width:100%;
+display:block;
 object-fit:contain;
 }
 
-.brand{
-font-size:52px;
-font-weight:800;
-color:#fff;
-margin-top:10px;
-letter-spacing:2px;
+.profile-wrapper{
+position:relative;
+margin-top:-70px;
+z-index:10;
+text-align:center;
 }
 
-.brand span{
-color:#ffc400;
-}
-
-.profile{
-margin-top:40px;
-}
-
-.profile-circle{
-width:90px;
-height:90px;
+.profile-image{
+width:140px;
+height:140px;
 border-radius:50%;
+object-fit:cover;
+border:5px solid #ffc400;
 background:#111;
-border:3px solid #ffc400;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#ffc400;
-font-size:36px;
-box-shadow:0 0 20px rgba(255,196,0,0.4);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 .name{
-margin-top:20px;
+margin-top:22px;
 font-size:42px;
 font-weight:800;
 color:#111;
 }
 
 .line{
-width:160px;
-height:4px;
+width:120px;
+height:5px;
 background:#ffc400;
-margin:15px auto 0;
-border-radius:20px;
+margin:16px auto 0;
+border-radius:30px;
 }
 
-.grid{
-margin-top:50px;
+.icons-wrapper{
+padding:50px 20px 160px;
+max-width:850px;
+margin:auto;
+}
+
+.icons-grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:22px;
-max-width:700px;
-margin-inline:auto;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:28px;
+justify-content:center;
 }
 
 .card{
-background:#0a0a0a;
-border-radius:32px;
-padding:35px 10px;
-text-decoration:none;
+background:#0b0b0b;
+min-height:170px;
+border-radius:34px;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-gap:14px;
-min-height:170px;
+text-decoration:none;
+position:relative;
+overflow:hidden;
+transition:0.35s;
 box-shadow:
-0 10px 30px rgba(0,0,0,0.25),
-0 4px 0 #ffc400;
-transition:0.3s;
+0 15px 40px rgba(0,0,0,0.28),
+0 5px 0 #ffc400;
+}
+
+.card::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,rgba(255,255,255,0.08),transparent);
 }
 
 .card:hover{
-transform:translateY(-5px) scale(1.02);
+transform:translateY(-8px) scale(1.03);
 }
 
 .card i{
 font-size:62px;
+position:relative;
+z-index:2;
 }
 
-.phone-icon{
-color:#ffc400;
-}
-
-.whatsapp-icon{
-color:#25D366;
-}
-
-.facebook-icon{
-color:#1877F2;
-}
-
+.phone-icon{color:#ffc400;}
+.whatsapp-icon{color:#25D366;}
+.facebook-icon{color:#1877F2;}
 .instagram-icon{
 background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
-
-.tiktok-icon{
-color:#fff;
-}
-
-.snapchat-icon{
-color:#FFFC00;
-}
-
-.telegram-icon{
-color:#2AABEE;
-}
+.tiktok-icon{color:#fff;}
+.snapchat-icon{color:#FFFC00;}
+.telegram-icon{color:#2AABEE;}
 
 .call-text{
-font-size:32px;
+margin-top:14px;
+font-size:28px;
 font-weight:700;
 color:#fff;
+position:relative;
+z-index:2;
 }
 
-.footer{
-position:relative;
-z-index:5;
+.bottom-section{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+background:#050505;
+padding:55px 20px 35px;
+border-top-left-radius:50% 18%;
+border-top-right-radius:50% 18%;
+border-top:4px solid #ffc400;
 text-align:center;
-padding-bottom:30px;
-margin-top:30px;
 }
 
 .footer-text{
-font-size:28px;
-font-weight:700;
-letter-spacing:2px;
+font-size:30px;
+font-weight:800;
 color:#fff;
+letter-spacing:2px;
 }
 
 .footer-text span{
@@ -220,8 +176,6 @@ color:#ffc400;
 }
 
 .message{
-position:relative;
-z-index:5;
 min-height:100vh;
 display:flex;
 align-items:center;
@@ -229,28 +183,32 @@ justify-content:center;
 font-size:42px;
 font-weight:800;
 color:#fff;
-text-align:center;
 padding:20px;
+text-align:center;
 }
 
 @media(max-width:768px){
 
-.brand{
-font-size:40px;
+.logo{
+width:180px;
+}
+
+.profile-image{
+width:120px;
+height:120px;
 }
 
 .name{
 font-size:34px;
 }
 
-.grid{
+.icons-grid{
 grid-template-columns:repeat(2,1fr);
-max-width:420px;
+gap:22px;
 }
 
 .card{
 min-height:150px;
-padding:28px 10px;
 }
 
 .card i{
@@ -261,20 +219,13 @@ font-size:52px;
 
 @media(max-width:500px){
 
-.grid{
-gap:18px;
+.icons-grid{
+grid-template-columns:repeat(2,1fr);
 }
 
 .card{
-border-radius:26px;
-}
-
-.brand{
-font-size:34px;
-}
-
-.name{
-font-size:28px;
+min-height:135px;
+border-radius:28px;
 }
 
 .card i{
@@ -282,23 +233,27 @@ font-size:46px;
 }
 
 .call-text{
-font-size:26px;
+font-size:24px;
+}
+
+.name{
+font-size:28px;
+}
+
+.footer-text{
+font-size:22px;
 }
 
 }
 
 </style>
-
 </head>
-
 <body>
 
 <div id="app">
-
 <div class="message">
 جاري التحميل...
 </div>
-
 </div>
 
 <script>
@@ -324,8 +279,8 @@ fetch(csvURL)
 .then(res => res.text())
 .then(data => {
 
-const rows = data.split("\n").slice(1);
-
+const rows = data.split("
+").slice(1);
 let found = false;
 
 rows.forEach(row => {
@@ -356,129 +311,99 @@ QR غير مفعل
 `;
 
 return;
-
 }
 
 let buttons = "";
 
 if(phone && phone !== "NO"){
-
 buttons += `
 <a class="card" href="tel:${phone}">
 <i class="fa-solid fa-phone-volume phone-icon"></i>
 <div class="call-text">اتصال</div>
 </a>
 `;
-
 }
 
 if(whatsapp && whatsapp !== "NO"){
-
 const waNumber = whatsapp.replace(/^0/, "962");
-
 buttons += `
 <a class="card" href="https://wa.me/${waNumber}" target="_blank">
 <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
 </a>
 `;
-
 }
 
 if(facebook && facebook !== "NO"){
-
 buttons += `
 <a class="card" href="${facebook}" target="_blank">
 <i class="fa-brands fa-facebook-f facebook-icon"></i>
 </a>
 `;
-
 }
 
 if(instagram && instagram !== "NO"){
-
 buttons += `
 <a class="card" href="${instagram}" target="_blank">
 <i class="fa-brands fa-instagram instagram-icon"></i>
 </a>
 `;
-
 }
 
 if(tiktok && tiktok !== "NO"){
-
 buttons += `
 <a class="card" href="${tiktok}" target="_blank">
 <i class="fa-brands fa-tiktok tiktok-icon"></i>
 </a>
 `;
-
 }
 
 if(snapchat && snapchat !== "NO"){
-
 buttons += `
 <a class="card" href="${snapchat}" target="_blank">
 <i class="fa-brands fa-snapchat snapchat-icon"></i>
 </a>
 `;
-
 }
 
 if(telegram && telegram !== "NO"){
-
 buttons += `
 <a class="card" href="${telegram}" target="_blank">
 <i class="fa-brands fa-telegram telegram-icon"></i>
 </a>
 `;
-
 }
 
-app.innerHTML = `
+const profileImage = `users/${ID}.jpg`;
 
+app.innerHTML = `
 <div class="main">
 
-<div class="top-shape"></div>
-<div class="bottom-shape"></div>
-
-<div class="content">
-
-<div class="logo-icon">
-<img src="https://i.imgur.com/zx4FQ8L.png">
+<div class="top-section">
+<img class="logo" src="logo.png">
 </div>
 
-<div class="brand">
-SMART <span>QR</span>
-</div>
+<div class="profile-wrapper">
+<img class="profile-image"
+src="${profileImage}"
+onerror="this.src='https://cdn-icons-png.flaticon.com/512/847/847969.png'">
 
-<div class="profile">
-
-<div class="profile-circle">
-<i class="fa-regular fa-user"></i>
-</div>
-
-<div class="name">
-${name}
-</div>
-
+<div class="name">${name}</div>
 <div class="line"></div>
-
 </div>
 
-<div class="grid">
+<div class="icons-wrapper">
+<div class="icons-grid">
 ${buttons}
 </div>
-
 </div>
 
-<div class="footer">
+<div class="bottom-section">
 <div class="footer-text">
 SCAN • CONNECT • <span>CARE</span>
 </div>
 </div>
 
 </div>
-
 `;
 
 }
@@ -486,13 +411,11 @@ SCAN • CONNECT • <span>CARE</span>
 });
 
 if(!found){
-
 app.innerHTML = `
 <div class="message">
 QR غير موجود
 </div>
 `;
-
 }
 
 });
