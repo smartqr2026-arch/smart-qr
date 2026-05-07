@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Smart QR</title>
+
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #f5f5f5;
+  padding: 40px;
+}
+.container {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  max-width: 400px;
+  margin: auto;
+}
+button {
+  width: 100%;
+  padding: 12px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.call { background: #4CAF50; color: white; }
+.whatsapp { background: #25D366; color: white; }
+.social { background: #333; color: white; }
+</style>
+</head>
+
+<body>
+
+<div class="container" id="app">
+<h2>جاري التحميل...</h2>
+</div>
+
+<script>
+// 👇 حط رابط CSV هون
+const sheetURL = "PUT_YOUR_CSV_LINK_HERE";
+
+// قراءة ID من الرابط
+const id = window.location.pathname.replace("/", "");
+
+fetch(sheetURL)
+.then(res => res.text())
+.then(csv => {
+
+  const rows = csv.split("\n").map(r => r.split(","));
+
+  // حذف أول سطر (العناوين)
+  rows.shift();
+
+  // البحث عن الـ ID
+  const user = rows.find(r => r[0] === id);
+
+  if (!user) {
+    document.getElementById("app").innerHTML = "QR غير موجود";
+    return;
+  }
+
+  if (user[1] !== "YES") {
+    document.getElementById("app").innerHTML = "الرابط غير مفعل";
+    return;
+  }
+
+  let html = `<h2>${user[9] || ""}</h2>`;
+
+  // اتصال
+  html += `<button class="call" onclick="window.location.href='tel:${user[2]}'">📞 اتصال</button>`;
+
+  // واتساب
+  html += `<button class="whatsapp" onclick="window.location.href='https://wa.me/${user[3]}'">💬 واتساب</button>`;
+
+  // السوشال
+  const socials = [
+    { name: "Facebook", value: user[4] },
+    { name: "Instagram", value: user[5] },
+    { name: "TikTok", value: user[6] },
+    { name: "Snapchat", value: user[7] },
+    { name: "Telegram", value: user[8] }
+  ];
+
+  socials.forEach(s => {
+    if (s.value && s.value !== "NO") {
+      html += `<button class="social" onclick="window.location.href='${s.value}'">${s.name}</button>`;
+    }
+  });
+
+  document.getElementById("app").innerHTML = html;
+
+})
+.catch(() => {
+  document.getElementById("app").innerHTML = "خطأ في تحميل البيانات";
+});
+</script>
+
+</body>
+</html>
