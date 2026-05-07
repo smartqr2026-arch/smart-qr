@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -13,8 +14,8 @@ body{
     padding:0;
     background:#ffffff;
     font-family:Arial;
-    text-align:center;
     direction:rtl;
+    text-align:center;
 }
 
 .container{
@@ -22,7 +23,7 @@ body{
 }
 
 .name{
-    font-size:32px;
+    font-size:34px;
     font-weight:bold;
     margin-bottom:40px;
 }
@@ -31,7 +32,7 @@ body{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:15px;
-    max-width:400px;
+    max-width:420px;
     margin:auto;
 }
 
@@ -40,7 +41,7 @@ body{
     color:#fff;
     text-decoration:none;
     padding:18px 10px;
-    border-radius:16px;
+    border-radius:18px;
     font-size:18px;
     transition:0.3s;
 }
@@ -52,14 +53,16 @@ body{
 .message{
     margin-top:100px;
     font-size:28px;
+    font-weight:bold;
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="container" id="app">
+<div id="app">
 
 <div class="message">
 جاري التحميل...
@@ -89,7 +92,9 @@ if(!qrId){
 }else{
 
 fetch(csvURL)
+
 .then(res => res.text())
+
 .then(data => {
 
     const rows = data.split("\n").slice(1);
@@ -101,15 +106,21 @@ fetch(csvURL)
         const cols = row.split(",");
 
         const ID = cols[0]?.trim();
+
         const active = cols[1]?.trim();
 
         const phone = cols[2]?.trim();
+
         const whatsapp = cols[3]?.trim();
 
         const facebook = cols[4]?.trim();
+
         const instagram = cols[5]?.trim();
+
         const tiktok = cols[6]?.trim();
+
         const snapchat = cols[7]?.trim();
+
         const telegram = cols[8]?.trim();
 
         const name = cols[9]?.trim();
@@ -131,7 +142,8 @@ fetch(csvURL)
 
             let buttons = "";
 
-            if(phone){
+            if(phone && phone !== "NO"){
+
                 buttons += `
                 <a class="btn"
                 href="tel:${phone}">
@@ -140,61 +152,77 @@ fetch(csvURL)
                 `;
             }
 
-            if(whatsapp){
+            if(whatsapp && whatsapp !== "NO"){
+
+                const waNumber =
+                whatsapp.replace(/^0/, "962");
+
                 buttons += `
                 <a class="btn"
-                href="https://wa.me/962${whatsapp.substring(1)}">
+                href="https://wa.me/${waNumber}"
+                target="_blank">
                 واتساب
                 </a>
                 `;
             }
 
-            if(facebook === "YES"){
+            if(facebook && facebook !== "NO"){
+
                 buttons += `
                 <a class="btn"
-                href="#">
+                href="${facebook}"
+                target="_blank">
                 فيسبوك
                 </a>
                 `;
             }
 
-            if(instagram === "YES"){
+            if(instagram && instagram !== "NO"){
+
                 buttons += `
                 <a class="btn"
-                href="#">
+                href="${instagram}"
+                target="_blank">
                 انستجرام
                 </a>
                 `;
             }
 
-            if(tiktok === "YES"){
+            if(tiktok && tiktok !== "NO"){
+
                 buttons += `
                 <a class="btn"
-                href="#">
+                href="${tiktok}"
+                target="_blank">
                 تيك توك
                 </a>
                 `;
             }
 
-            if(snapchat === "YES"){
+            if(snapchat && snapchat !== "NO"){
+
                 buttons += `
                 <a class="btn"
-                href="#">
+                href="${snapchat}"
+                target="_blank">
                 سناب شات
                 </a>
                 `;
             }
 
-            if(telegram === "YES"){
+            if(telegram && telegram !== "NO"){
+
                 buttons += `
                 <a class="btn"
-                href="#">
+                href="${telegram}"
+                target="_blank">
                 تيليجرام
                 </a>
                 `;
             }
 
             app.innerHTML = `
+
             <div class="container">
 
             <div class="name">
@@ -206,6 +234,7 @@ fetch(csvURL)
             </div>
 
             </div>
+
             `;
         }
 
