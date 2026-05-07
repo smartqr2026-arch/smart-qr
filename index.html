@@ -1,211 +1,252 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SMART QR</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Cairo',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    background:#f4f4f4;
-    min-height:100vh;
+font-family:'Cairo',sans-serif;
+background:#000;
+min-height:100vh;
+overflow-x:hidden;
+direction:rtl;
 }
 
 .main{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+position:relative;
+min-height:100vh;
+background:#fff;
+overflow:hidden;
 }
 
 .top-section{
-    background:#111;
-    height:180px;
-    border-bottom-left-radius:50px;
-    border-bottom-right-radius:50px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    overflow:hidden;
-}
-
-.top-section::after{
-    content:'';
-    position:absolute;
-    bottom:18px;
-    width:100%;
-    height:3px;
-    background:#f4b400;
+position:relative;
+background:#050505;
+padding:40px 20px 120px;
+border-bottom-left-radius:50% 12%;
+border-bottom-right-radius:50% 12%;
+border-bottom:4px solid #ffc400;
+text-align:center;
 }
 
 .logo{
-    width:220px;
+width:220px;
+margin:auto;
+display:block;
+object-fit:contain;
 }
 
 .profile-wrapper{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin-top:-60px;
-    z-index:10;
+position:relative;
+margin-top:-70px;
+z-index:10;
+text-align:center;
 }
 
 .profile-image{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    object-fit:cover;
-    border:4px solid #f4b400;
-    background:#111;
-    box-shadow:0 0 25px rgba(244,180,0,0.4);
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #ffc400;
+background:#111;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 .name{
-    margin-top:20px;
-    font-size:40px;
-    font-weight:900;
-    color:#111;
+margin-top:22px;
+font-size:42px;
+font-weight:800;
+color:#111;
 }
 
 .line{
-    width:120px;
-    height:4px;
-    background:#f4b400;
-    border-radius:50px;
-    margin-top:10px;
+width:120px;
+height:5px;
+background:#ffc400;
+margin:16px auto 0;
+border-radius:30px;
 }
 
 .icons-wrapper{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    margin-top:40px;
-    padding:20px;
+padding:50px 20px 160px;
+max-width:850px;
+margin:auto;
 }
 
 .icons-grid{
-    display:grid;
-    grid-template-columns:repeat(3,120px);
-    gap:22px;
-    justify-content:center;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:28px;
+justify-content:center;
 }
 
-.icon-btn{
-    width:120px;
-    height:120px;
-    background:#111;
-    border-radius:28px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
-    box-shadow:
-    0 10px 25px rgba(0,0,0,0.2),
-    inset 0 -3px 0 #f4b400;
-    transition:0.25s;
+.card{
+background:#0b0b0b;
+min-height:170px;
+border-radius:34px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+position:relative;
+overflow:hidden;
+transition:0.35s;
+box-shadow:
+0 15px 40px rgba(0,0,0,0.28),
+0 5px 0 #ffc400;
 }
 
-.icon-btn:hover{
-    transform:translateY(-6px) scale(1.03);
+.card::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,rgba(255,255,255,0.08),transparent);
 }
 
-.icon-btn i{
-    font-size:42px;
+.card:hover{
+transform:translateY(-8px) scale(1.03);
 }
 
-.phone-text{
-    color:white;
-    margin-top:8px;
-    font-weight:700;
-    font-size:20px;
+.card i{
+font-size:62px;
+position:relative;
+z-index:2;
 }
 
-.facebook{color:#1877f2;}
-.whatsapp{color:#25d366;}
-.instagram{
-    background:linear-gradient(
-    45deg,
-    #feda75,
-    #fa7e1e,
-    #d62976,
-    #962fbf,
-    #4f5bd5);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+.phone-icon{color:#ffc400;}
+.whatsapp-icon{color:#25D366;}
+.facebook-icon{color:#1877F2;}
+
+.instagram-icon{
+background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
-.tiktok{color:white;}
-.snapchat{color:#fffc00;}
-.telegram{color:#229ED9;}
-.phone{color:#f4b400;}
+
+.tiktok-icon{color:#fff;}
+.snapchat-icon{color:#FFFC00;}
+.telegram-icon{color:#2AABEE;}
+
+.call-text{
+margin-top:14px;
+font-size:28px;
+font-weight:700;
+color:#fff;
+position:relative;
+z-index:2;
+}
 
 .bottom-section{
-    background:#111;
-    height:110px;
-    border-top-left-radius:50px;
-    border-top-right-radius:50px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-top:40px;
-    position:relative;
-    overflow:hidden;
-}
-
-.bottom-section::before{
-    content:'';
-    position:absolute;
-    top:18px;
-    width:100%;
-    height:3px;
-    background:#f4b400;
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+background:#050505;
+padding:55px 20px 35px;
+border-top-left-radius:50% 18%;
+border-top-right-radius:50% 18%;
+border-top:4px solid #ffc400;
+text-align:center;
 }
 
 .footer-text{
-    color:white;
-    font-size:20px;
-    font-weight:700;
-    letter-spacing:2px;
+font-size:30px;
+font-weight:800;
+color:#fff;
+letter-spacing:2px;
 }
 
 .footer-text span{
-    color:#f4b400;
+color:#ffc400;
 }
 
 .message{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    font-size:32px;
-    font-weight:700;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+font-weight:800;
+color:#fff;
+padding:20px;
+text-align:center;
+background:#000;
 }
 
-@media(max-width:600px){
+@media(max-width:768px){
 
-    .icons-grid{
-        grid-template-columns:repeat(2,120px);
-    }
+.logo{
+width:180px;
+}
 
-    .name{
-        font-size:34px;
-    }
+.profile-image{
+width:120px;
+height:120px;
+}
+
+.name{
+font-size:34px;
+}
+
+.icons-grid{
+grid-template-columns:repeat(2,1fr);
+gap:22px;
+}
+
+.card{
+min-height:150px;
+}
+
+.card i{
+font-size:52px;
+}
+
+}
+
+@media(max-width:500px){
+
+.icons-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.card{
+min-height:135px;
+border-radius:28px;
+}
+
+.card i{
+font-size:46px;
+}
+
+.call-text{
+font-size:24px;
+}
+
+.name{
+font-size:28px;
+}
+
+.footer-text{
+font-size:22px;
+}
 
 }
 
@@ -214,153 +255,248 @@ body{
 
 <body>
 
-<div id="app"></div>
+<div id="app">
+
+<div class="message">
+جاري التحميل...
+</div>
+
+</div>
 
 <script>
 
-const csvUrl =
-'https://docs.google.com/spreadsheets/d/e/2PACX-1vTYzdnsvSpaFn__hpVxQlKvw2HX5zt0Yb7XnSuDGLLqYWr015v9kilVG574E3A0wbdzCr0krQHvlEG-/pub?output=csv';
+// رابط CSV
+const csvURL =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vTYzdnsvSpaFn__hpVxQlKvw2HX5zt0Yb7XnSuDGLLqYWr015v9kilVG574E3A0wbdzCr0krQHvlEG-/pub?output=csv";
 
+// قراءة ID من الرابط
 const params = new URLSearchParams(window.location.search);
 
-const id = params.get('id');
+const qrId = params.get("id");
 
-const app = document.getElementById('app');
+// عنصر التطبيق
+const app = document.getElementById("app");
 
-fetch(csvUrl)
+// إذا لا يوجد ID
+if(!qrId){
+
+app.innerHTML = `
+<div class="message">
+QR غير موجود
+</div>
+`;
+
+}else{
+
+fetch(csvURL)
+
 .then(res => res.text())
-.then(text => {
 
-    const rows = text.trim().split('\n').map(r => r.split(','));
+.then(data => {
 
-    const headers = rows.shift();
+const rows = data.trim().split("\n").slice(1);
 
-    let found = false;
+let found = false;
 
-    rows.forEach(row => {
+rows.forEach(row => {
 
-        const user = {};
+const cols = row.split(",");
 
-        headers.forEach((h,i)=>{
-            user[h.trim()] = row[i]?.trim();
-        });
+const ID = cols[0]?.trim();
+const active = cols[1]?.trim();
+const phone = cols[2]?.trim();
+const whatsapp = cols[3]?.trim();
+const facebook = cols[4]?.trim();
+const instagram = cols[5]?.trim();
+const tiktok = cols[6]?.trim();
+const snapchat = cols[7]?.trim();
+const telegram = cols[8]?.trim();
+const name = cols[9]?.trim();
 
-        if(user.ID === id && user.Active === 'YES'){
+// مطابقة ID
+if(ID === qrId){
 
-            found = true;
+found = true;
 
-            const name = user.Name || '';
+// إذا غير مفعل
+if(active !== "YES"){
 
-            let buttons = '';
+app.innerHTML = `
+<div class="message">
+QR غير مفعل
+</div>
+`;
 
-            if(user.facebook && user.facebook !== 'NO'){
-                buttons += `
-                <a class="icon-btn" href="${user.facebook}" target="_blank">
-                    <i class="fab fa-facebook-f facebook"></i>
-                </a>`;
-            }
+return;
 
-            if(user.whatsapp && user.whatsapp !== 'NO'){
-                buttons += `
-                <a class="icon-btn"
-                href="https://wa.me/${user.whatsapp}"
-                target="_blank">
-                    <i class="fab fa-whatsapp whatsapp"></i>
-                </a>`;
-            }
+}
 
-            if(user.Phone){
-                buttons += `
-                <a class="icon-btn"
-                href="tel:${user.Phone}">
-                    <i class="fas fa-phone-volume phone"></i>
-                    <div class="phone-text">اتصال</div>
-                </a>`;
-            }
+let buttons = "";
 
-            if(user.instagram && user.instagram !== 'NO'){
-                buttons += `
-                <a class="icon-btn" href="${user.instagram}" target="_blank">
-                    <i class="fab fa-instagram instagram"></i>
-                </a>`;
-            }
+// اتصال
+if(phone && phone !== "NO"){
 
-            if(user.tiktok && user.tiktok !== 'NO'){
-                buttons += `
-                <a class="icon-btn" href="${user.tiktok}" target="_blank">
-                    <i class="fab fa-tiktok tiktok"></i>
-                </a>`;
-            }
+buttons += `
+<a class="card" href="tel:${phone}">
+<i class="fa-solid fa-phone-volume phone-icon"></i>
+<div class="call-text">اتصال</div>
+</a>
+`;
 
-            if(user.snapchat && user.snapchat !== 'NO'){
-                buttons += `
-                <a class="icon-btn" href="${user.snapchat}" target="_blank">
-                    <i class="fab fa-snapchat snapchat"></i>
-                </a>`;
-            }
+}
 
-            if(user.telegram && user.telegram !== 'NO'){
-                buttons += `
-                <a class="icon-btn" href="${user.telegram}" target="_blank">
-                    <i class="fab fa-telegram telegram"></i>
-                </a>`;
-            }
+// واتساب
+if(whatsapp && whatsapp !== "NO"){
 
-            const profileImage =
-            `https://smartqr2026-arch.github.io/smart-qr/users/${id}.jpg`;
+const waNumber = whatsapp.replace(/^0/, "962");
 
-            app.innerHTML = `
+buttons += `
+<a class="card" href="https://wa.me/${waNumber}" target="_blank">
+<i class="fa-brands fa-whatsapp whatsapp-icon"></i>
+</a>
+`;
 
-            <div class="main">
+}
 
-                <div class="top-section">
-                    <img class="logo" src="logo.png">
-                </div>
+// فيسبوك
+if(facebook && facebook !== "NO"){
 
-                <div class="profile-wrapper">
+buttons += `
+<a class="card" href="${facebook}" target="_blank">
+<i class="fa-brands fa-facebook-f facebook-icon"></i>
+</a>
+`;
 
-                    <img
-                    id="user-image"
-                    class="profile-image"
-                    src="${profileImage}"
-                    onerror="this.src='https://cdn-icons-png.flaticon.com/512/847/847969.png'"
-                    >
+}
 
-                    <div class="name">${name}</div>
+// انستجرام
+if(instagram && instagram !== "NO"){
 
-                    <div class="line"></div>
+buttons += `
+<a class="card" href="${instagram}" target="_blank">
+<i class="fa-brands fa-instagram instagram-icon"></i>
+</a>
+`;
 
-                </div>
+}
 
-                <div class="icons-wrapper">
-                    <div class="icons-grid">
-                        ${buttons}
-                    </div>
-                </div>
+// تيك توك
+if(tiktok && tiktok !== "NO"){
 
-                <div class="bottom-section">
-                    <div class="footer-text">
-                        SCAN • CONNECT • <span>CARE</span>
-                    </div>
-                </div>
+buttons += `
+<a class="card" href="${tiktok}" target="_blank">
+<i class="fa-brands fa-tiktok tiktok-icon"></i>
+</a>
+`;
 
-            </div>
+}
 
-            `;
-        }
+// سناب
+if(snapchat && snapchat !== "NO"){
 
-    });
+buttons += `
+<a class="card" href="${snapchat}" target="_blank">
+<i class="fa-brands fa-snapchat snapchat-icon"></i>
+</a>
+`;
 
-    if(!found){
+}
 
-        app.innerHTML = `
-        <div class="message">
-        غير موجود QR
-        </div>
-        `;
-    }
+// تيليجرام
+if(telegram && telegram !== "NO"){
+
+buttons += `
+<a class="card" href="${telegram}" target="_blank">
+<i class="fa-brands fa-telegram telegram-icon"></i>
+</a>
+`;
+
+}
+
+// صورة المستخدم
+const profileImage =
+`https://smartqr2026-arch.github.io/smart-qr/users/${ID}.jpg`;
+
+// عرض الصفحة
+app.innerHTML = `
+
+<div class="main">
+
+<div class="top-section">
+
+<img class="logo" src="logo.png">
+
+</div>
+
+<div class="profile-wrapper">
+
+<img
+class="profile-image"
+src="${profileImage}"
+
+onerror="this.src='https://cdn-icons-png.flaticon.com/512/847/847969.png'">
+
+<div class="name">
+${name}
+</div>
+
+<div class="line"></div>
+
+</div>
+
+<div class="icons-wrapper">
+
+<div class="icons-grid">
+
+${buttons}
+
+</div>
+
+</div>
+
+<div class="bottom-section">
+
+<div class="footer-text">
+SCAN • CONNECT • <span>CARE</span>
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
 
 });
+
+// إذا لم يجد المستخدم
+if(!found){
+
+app.innerHTML = `
+<div class="message">
+QR غير موجود
+</div>
+`;
+
+}
+
+})
+
+// إذا فشل الاتصال
+.catch(error => {
+
+console.log(error);
+
+app.innerHTML = `
+<div class="message">
+حدث خطأ بالاتصال
+</div>
+`;
+
+});
+
+}
 
 </script>
 
