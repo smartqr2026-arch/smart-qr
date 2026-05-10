@@ -310,8 +310,11 @@ const active = cols[1]?.trim();
 const phone = cols[2]?.trim();
 const phone2 = cols[10]?.replace(/'/g, "").trim();
 console.log(cols);
-const whatsapp = cols[3]?.trim();
-const facebook = cols[4]?.trim();
+const waNumber = whatsapp
+.replace(/\s/g, "")
+.replace(/[^\d]/g, "")
+.replace(/^0/, "962");
+  const facebook = cols[4]?.trim();
 const instagram = cols[5]?.trim();
 const tiktok = cols[6]?.trim();
 const snapchat = cols[7]?.trim();
