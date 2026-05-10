@@ -349,15 +349,18 @@ buttons += `
 `;
 
 }
-if (phone2 && phone2.toUpperCase() !== "NO") {
+// 2 اتصال
+if(phone2 && phone2 !== "NO"){
 
-  buttons.innerHTML += `
-    <a href="tel:${phone2}" class="social-btn">
-      <i class="fas fa-phone"></i>
-      اتصال
-    </a>
-  `;
+buttons += `
+<a class="card" href="tel:${phone2}">
+<i class="fa-solid fa-phone phone-icon"></i>
+<div class="call-text">اتصال 2</div>
+</a>
+`;
+
 }
+
 // واتساب
 if(whatsapp && whatsapp !== "NO"){
 
