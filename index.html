@@ -308,7 +308,7 @@ const cols = row.split(",");
 const ID = cols[0]?.trim();
 const active = cols[1]?.trim();
 const phone = cols[2]?.trim();
-const phone2 = cols[10]?.replace(/'/g, "").trim();
+const emergency = cols[10]?.replace(/'/g, "").trim();
 console.log(cols);
 const whatsapp = cols[3]?.trim();
 const waNumber = whatsapp
@@ -354,12 +354,12 @@ buttons += `
 
 }
 // رقم طوارئ
-if(phone2 && phone2 !== "NO"){
+if(emergency && emergency !== "NO"){
 
 buttons += `
-<a class="card" href="tel:${phone2}">
+<a class="card" href="tel:${emergency}">
 <i class="fa-solid fa-phone phone-icon"></i>
-<div class="call-text">اتصال 2</div>
+<div class="call-text">طوارئ</div>
 </a>
 `;
 
