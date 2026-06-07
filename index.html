@@ -321,7 +321,9 @@ const tiktok = cols[6]?.trim();
 const snapchat = cols[7]?.trim();
 const telegram = cols[8]?.trim();
 const name = cols[9]?.trim();
-
+const website = cols[11]?.trim();
+const email = cols[12]?.trim();
+  
 // مطابقة ID
 if(ID === qrId){
 
@@ -432,7 +434,30 @@ buttons += `
 `;
 
 }
+.website-icon{color:#ffc400;}
+.email-icon{color:#4A90E2;}
 
+// Website
+if(website && website !== "NO"){
+
+buttons += `
+<a class="card" href="${website}" target="_blank">
+<i class="fa-solid fa-globe website-icon"></i>
+</a>
+`;
+
+}
+
+// Email
+if(email && email !== "NO"){
+
+buttons += `
+<a class="card" href="mailto:${email}">
+<i class="fa-solid fa-envelope email-icon"></i>
+</a>
+`;
+
+}
 // صورة المستخدم
 const profileImage =
 `https://smartqr2026-arch.github.io/smart-qr/users/${ID}.jpg`;
