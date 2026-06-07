@@ -22,7 +22,7 @@ box-sizing:border-box;
 
 body{
 font-family:'Cairo',sans-serif;
-background:#000;
+background:#ece4d8;
 min-height:100vh;
 overflow-x:hidden;
 direction:rtl;
@@ -31,7 +31,7 @@ direction:rtl;
 .main{
 position:relative;
 min-height:100vh;
-background:#fff;
+background:#ece4d8;
 overflow:hidden;
 }
 
@@ -46,7 +46,7 @@ text-align:center;
 }
 
 .logo{
-width:220px;
+width:190px;
 margin:auto;
 display:block;
 object-fit:contain;
@@ -54,7 +54,13 @@ padding:10px;
 background:rgba(255,255,255,0.08);
 border-radius:14px;
 }
-  
+.slogan{
+margin-top:12px;
+font-size:14px;
+font-weight:700;
+letter-spacing:3px;
+color:#d6a300;
+}  
   .profile-wrapper{
 position:relative;
 margin-top:-70px;
@@ -101,8 +107,8 @@ justify-content:center;
 }
 
 .card{
-background:#0b0b0b;
-min-height:170px;
+background:#2f2f2f;
+min-height:140px;
 border-radius:34px;
 display:flex;
 flex-direction:column;
@@ -445,7 +451,7 @@ if(website && website !== "NO"){
 
 buttons += `
 <a class="card" href="${website}" target="_blank">
-    <i class="fa-solid fa-globe"></i>
+<i class="fa-solid fa-globe website-icon"></i>
 </a>
 `;
 
@@ -455,7 +461,7 @@ if(email && email !== "NO"){
 
 buttons += `
 <a class="card" href="mailto:${email}">
-    <i class="fa-solid fa-envelope"></i>
+<i class="fa-solid fa-envelope email-icon"></i>
 </a>
 `;
 
@@ -473,6 +479,8 @@ app.innerHTML = `
 
 <img class="logo" src="logo.png">
 
+<div class="slogan">
+SCAN • CONNECT • CARE
 </div>
 
 <div class="profile-wrapper">
