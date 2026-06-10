@@ -86,22 +86,23 @@ opacity:.75;
 }
 
 .icons-wrapper{
-padding:50px 20px 160px;
-max-width:850px;
+padding:40px 20px 120px;
+max-width:700px;
 margin:auto;
 }
 
 .icons-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:28px;
-justify-content:center;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+max-width:600px;
+margin:auto;
 }
 
 .card{
-background:#0b0b0b;
-min-height:170px;
-border-radius:34px;
+background:#111;
+min-height:140px;
+border-radius:28px;
 display:flex;
 flex-direction:column;
 align-items:center;
@@ -109,10 +110,8 @@ justify-content:center;
 text-decoration:none;
 position:relative;
 overflow:hidden;
-transition:0.35s;
-box-shadow:
-0 15px 40px rgba(0,0,0,0.28),
-0 5px 0 #ffc400;
+transition:.3s;
+box-shadow:0 8px 20px rgba(0,0,0,.20);
 }
 
 .card::before{
@@ -127,7 +126,7 @@ transform:translateY(-8px) scale(1.03);
 }
 
 .card i{
-font-size:62px;
+font-size:54px;
 position:relative;
 z-index:2;
 }
