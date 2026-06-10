@@ -131,6 +131,22 @@ position:relative;
 z-index:2;
 }
 
+.contact-card{
+grid-column:1 / -1;
+min-height:90px;
+flex-direction:row;
+gap:14px;
+}
+
+.contact-card i{
+font-size:32px;
+}
+
+.contact-card .call-text{
+margin-top:0;
+font-size:24px;
+}  
+
 .phone-icon{color:#ffc400;}
 .whatsapp-icon{color:#25D366;}
 .facebook-icon{color:#1877F2;}
@@ -347,7 +363,7 @@ let buttons = "";
 if(phone && phone !== "NO"){
 
 buttons += `
-<a class="card" href="tel:${phone}">
+<a class="card contact-card" href="tel:${phone}">
 <i class="fa-solid fa-phone-volume phone-icon"></i>
 <div class="call-text">اتصال</div>
 </a>
@@ -358,7 +374,7 @@ buttons += `
 if(emergency && emergency !== "NO"){
 
 buttons += `
-<a class="card" href="tel:${emergency}">
+<a class="card contact-card" href="tel:${emergency}">
 <i class="fa-solid fa-phone phone-icon"></i>
 <div class="call-text">رقم طوارئ</div>
 </a>
