@@ -217,6 +217,14 @@ font-size:52px;
 grid-template-columns:repeat(3,1fr);
 }
 
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:22px;
+max-width:600px;
+margin:0 auto 22px;
+}
+  
 .card{
 min-height:135px;
 border-radius:28px;
@@ -360,7 +368,7 @@ if(whatsapp && whatsapp !== "NO"){
 
 const waNumber = whatsapp.replace(/^0/, "962");
 
-buttons += `
+socialButtons += `
 <a class="card" href="https://wa.me/${waNumber}" target="_blank">
 <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
 </a>
@@ -371,7 +379,7 @@ buttons += `
 // فيسبوك
 if(facebook && facebook !== "NO"){
 
-buttons += `
+socialButtons += `
 <a class="card" href="${facebook}" target="_blank">
 <i class="fa-brands fa-facebook-f facebook-icon"></i>
 </a>
@@ -382,7 +390,7 @@ buttons += `
 // انستجرام
 if(instagram && instagram !== "NO"){
 
-buttons += `
+socialButtons += `
 <a class="card" href="${instagram}" target="_blank">
 <i class="fa-brands fa-instagram instagram-icon"></i>
 </a>
@@ -393,7 +401,7 @@ buttons += `
 // تيك توك
 if(tiktok && tiktok !== "NO"){
 
-buttons += `
+socialButtons += `
 <a class="card" href="${tiktok}" target="_blank">
 <i class="fa-brands fa-tiktok tiktok-icon"></i>
 </a>
@@ -404,7 +412,7 @@ buttons += `
 // سناب
 if(snapchat && snapchat !== "NO"){
 
-buttons += `
+socialButtons += `
 <a class="card" href="${snapchat}" target="_blank">
 <i class="fa-brands fa-snapchat snapchat-icon"></i>
 </a>
@@ -415,7 +423,7 @@ buttons += `
 // تيليجرام
 if(telegram && telegram !== "NO"){
 
-buttons += `
+socialButtons += `
 <a class="card" href="${telegram}" target="_blank">
 <i class="fa-brands fa-telegram telegram-icon"></i>
 </a>
@@ -426,7 +434,7 @@ buttons += `
 // Website
 if(website && website !== "NO"){
 
-buttons += `
+socialButtons += `
 <a class="card" href="${website}" target="_blank">
 <i class="fa-solid fa-globe website-icon"></i>
 </a>
@@ -437,7 +445,7 @@ buttons += `
 // Email
 if(email && email !== "NO"){
 
-buttons += `
+socialButtons += `
 <a class="card" href="mailto:${email}">
 <i class="fa-solid fa-envelope email-icon"></i>
 </a>
@@ -477,9 +485,15 @@ ${name}
 
 <div class="icons-wrapper">
 
+<div class="contact-grid">
+
+${contactButtons}
+
+</div>
+
 <div class="icons-grid">
 
-${buttons}
+${socialButtons}
 
 </div>
 
