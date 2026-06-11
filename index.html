@@ -329,12 +329,14 @@ return;
 
 }
 
-let buttons = "";
-
+let contactButtons = "";
+let socialButtons = "";
+  
 // اتصال
 if(phone && phone !== "NO"){
 
 buttons += `
+contactButtons += `
 <a class="card contact-card" href="tel:${phone}">
 <i class="fa-solid fa-phone-volume phone-icon"></i>
 <div class="call-text">اتصال</div>
@@ -346,6 +348,7 @@ buttons += `
 if(emergency && emergency !== "NO"){
 
 buttons += `
+contactButtons += `
 <a class="card contact-card" href="tel:${emergency}">
 <i class="fa-solid fa-phone phone-icon"></i>
 <div class="call-text">رقم طوارئ</div>
