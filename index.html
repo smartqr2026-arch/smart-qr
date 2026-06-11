@@ -100,7 +100,7 @@ background:linear-gradient(
 width:100%;
 aspect-ratio:1/1;
 
-border-radius:24px;
+border-radius:18px;
 
 display:flex;
 align-items:center;
@@ -143,7 +143,7 @@ z-index:2;
 grid-column:span 1;
 aspect-ratio:auto;
 height:95px;
-border-radius:26px;
+border-radius:16px;
 flex-direction:row;
 justify-content:center;
 gap:16px;
@@ -159,6 +159,23 @@ font-size:24px;
 }
 .card{
 box-sizing:border-box;
+}
+
+.social-circle{
+width:74px;
+height:74px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:#111;
+
+box-shadow:
+0 4px 10px rgba(0,0,0,.25),
+inset 0 1px 2px rgba(255,255,255,.08);
 }
 .phone-icon{color:#ffc400;}
 .whatsapp-icon{color:#25D366;}
@@ -253,6 +270,29 @@ font-size:46px;
 
 .call-text{
 font-size:24px;
+}
+
+.contact-card{
+text-align:right;
+}
+
+.contact-text{
+display:flex;
+flex-direction:column;
+line-height:1.2;
+}
+
+.contact-title{
+font-size:22px;
+font-weight:800;
+color:#fff;
+}
+
+.contact-subtitle{
+font-size:12px;
+font-weight:600;
+color:rgba(255,255,255,.7);
+margin-top:4px;
 }
 
 .name{
@@ -363,8 +403,10 @@ if(phone && phone !== "NO"){
 contactButtons += `
 <a class="card contact-card" href="tel:${phone}">
 <i class="fa-solid fa-phone-volume phone-icon"></i>
-<div class="call-text">اتصال</div>
-</a>
+<div class="contact-text">
+<div class="contact-title">اتصال</div>
+<div class="contact-subtitle">اتصل مباشرة</div>
+</div>
 `;
 
 }
@@ -374,8 +416,10 @@ if(emergency && emergency !== "NO"){
 contactButtons += `
 <a class="card contact-card" href="tel:${emergency}">
 <i class="fa-solid fa-phone phone-icon"></i>
-<div class="call-text">رقم طوارئ</div>
-</a>
+<div class="contact-text">
+<div class="contact-title">رقم طوارئ</div>
+<div class="contact-subtitle">للتواصل في الحالات الطارئة</div>
+</div>
 `;
 
 }
@@ -387,6 +431,7 @@ const waNumber = whatsapp.replace(/^0/, "962");
 
 socialButtons += `
 <a class="card" href="https://wa.me/${waNumber}" target="_blank">
+<div class="social-circle">
 <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
 </a>
 `;
@@ -398,6 +443,7 @@ if(facebook && facebook !== "NO"){
 
 socialButtons += `
 <a class="card" href="${facebook}" target="_blank">
+<div class="social-circle">
 <i class="fa-brands fa-facebook-f facebook-icon"></i>
 </a>
 `;
@@ -409,6 +455,7 @@ if(instagram && instagram !== "NO"){
 
 socialButtons += `
 <a class="card" href="${instagram}" target="_blank">
+<div class="social-circle">
 <i class="fa-brands fa-instagram instagram-icon"></i>
 </a>
 `;
@@ -420,6 +467,7 @@ if(tiktok && tiktok !== "NO"){
 
 socialButtons += `
 <a class="card" href="${tiktok}" target="_blank">
+<div class="social-circle">
 <i class="fa-brands fa-tiktok tiktok-icon"></i>
 </a>
 `;
@@ -431,6 +479,7 @@ if(snapchat && snapchat !== "NO"){
 
 socialButtons += `
 <a class="card" href="${snapchat}" target="_blank">
+<div class="social-circle">
 <i class="fa-brands fa-snapchat snapchat-icon"></i>
 </a>
 `;
@@ -442,6 +491,7 @@ if(telegram && telegram !== "NO"){
 
 socialButtons += `
 <a class="card" href="${telegram}" target="_blank">
+<div class="social-circle">
 <i class="fa-brands fa-telegram telegram-icon"></i>
 </a>
 `;
@@ -453,6 +503,7 @@ if(website && website !== "NO"){
 
 socialButtons += `
 <a class="card" href="${website}" target="_blank">
+<div class="social-circle">
 <i class="fa-solid fa-globe website-icon"></i>
 </a>
 `;
@@ -464,6 +515,7 @@ if(email && email !== "NO"){
 
 socialButtons += `
 <a class="card" href="mailto:${email}">
+<div class="social-circle">
 <i class="fa-solid fa-envelope email-icon"></i>
 </a>
 `;
