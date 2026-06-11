@@ -82,12 +82,16 @@ margin:auto;
 }
 
 .icons-grid{
-display:grid;
-grid-template-columns:repeat(3,minmax(0,1fr));
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
 gap:22px;
 max-width:600px;
 margin:auto;
-width:100%;
+}
+
+.icons-grid .card{
+width:170px;
 }
 
 .card{
@@ -311,6 +315,11 @@ grid-template-columns:repeat(2,1fr);
 gap:22px;
 max-width:600px;
 margin:0 auto 22px;
+}
+
+.contact-grid:has(.contact-card:only-child){
+grid-template-columns:260px;
+justify-content:center;
 }
   
 .card{
