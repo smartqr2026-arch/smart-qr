@@ -140,17 +140,18 @@ z-index:2;
 }
 
 .contact-card{
-grid-column:span 1;
-aspect-ratio:auto;
 height:95px;
-border-radius:16px;
+border-radius:20px;
 flex-direction:row;
 justify-content:center;
-gap:16px;
+gap:14px;
+padding:0 18px;
 }
 
 .contact-card i{
-font-size:34px;
+font-size:42px;
+color:#d4af37;
+flex-shrink:0;
 }
 
 .contact-card .call-text{
@@ -164,34 +165,85 @@ box-sizing:border-box;
 .social-circle{
 width:74px;
 height:74px;
-
 border-radius:50%;
-
 display:flex;
 align-items:center;
 justify-content:center;
-
-background:#111;
 
 box-shadow:
 0 4px 10px rgba(0,0,0,.25),
 inset 0 1px 2px rgba(255,255,255,.08);
 }
-.phone-icon{color:#ffc400;}
-.whatsapp-icon{color:#25D366;}
-.facebook-icon{color:#1877F2;}
 
-.instagram-icon{
-background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+.social-circle i{
+font-size:42px;
+}
+.phone-icon{color:#ffc400;}
+.whatsapp-circle{
+background:#25D366;
 }
 
-.tiktok-icon{color:#fff;}
-.snapchat-icon{color:#FFFC00;}
-.telegram-icon{color:#2AABEE;}
-.website-icon{color:#ffc400;}
-.email-icon{color:#4A90E2;}
+.whatsapp-icon{
+color:#fff;
+}
+.facebook-circle{
+background:#1877F2;
+}
+
+.facebook-icon{
+color:#fff;
+}
+
+.instagram-circle{
+background:linear-gradient(
+45deg,
+#f9ce34,
+#ee2a7b,
+#6228d7
+);
+}
+
+.instagram-icon{
+color:#fff;
+background:none;
+-webkit-text-fill-color:#fff;
+}
+
+.tiktok-circle{
+background:#000;
+}
+
+.tiktok-icon{
+color:#fff;
+}
+.snapchat-circle{
+background:#FFFC00;
+}
+
+.snapchat-icon{
+color:#fff;
+}
+.telegram-circle{
+background:#2AABEE;
+}
+
+.telegram-icon{
+color:#fff;
+}
+.website-circle{
+background:#d4af37;
+}
+
+.website-icon{
+color:#111;
+}
+.email-circle{
+background:#4A90E2;
+}
+
+.email-icon{
+color:#fff;
+}
 
 .call-text{
 margin-top:14px;
@@ -279,19 +331,21 @@ text-align:right;
 .contact-text{
 display:flex;
 flex-direction:column;
-line-height:1.2;
+align-items:flex-start;
 }
 
 .contact-title{
 font-size:22px;
 font-weight:800;
+line-height:1.1;
 color:#fff;
 }
 
 .contact-subtitle{
 font-size:12px;
 font-weight:600;
-color:rgba(255,255,255,.7);
+line-height:1.2;
+color:#d8d8d8;
 margin-top:4px;
 }
 
@@ -416,7 +470,7 @@ if(emergency && emergency !== "NO"){
 
 contactButtons += `
 <a class="card contact-card" href="tel:${emergency}">
-<i class="fa-solid fa-phone phone-icon"></i>
+<i class="fa-regular fa-user phone-icon"></i>
 <div class="contact-text">
 <div class="contact-title">رقم طوارئ</div>
 <div class="contact-subtitle">للتواصل في الحالات الطارئة</div>
@@ -434,6 +488,7 @@ const waNumber = whatsapp.replace(/^0/, "962");
 socialButtons += `
 <a class="card" href="https://wa.me/${waNumber}" target="_blank">
 <div class="social-circle">
+<div class="social-circle whatsapp-circle">
 <i class="fa-brands fa-whatsapp whatsapp-icon"></i>
 </div>
 </a>
@@ -446,7 +501,7 @@ if(facebook && facebook !== "NO"){
 
 socialButtons += `
 <a class="card" href="${facebook}" target="_blank">
-<div class="social-circle">
+<div class="social-circle facebook-circle">
 <i class="fa-brands fa-facebook-f facebook-icon"></i>
 </div>
 </a>
@@ -459,7 +514,7 @@ if(instagram && instagram !== "NO"){
 
 socialButtons += `
 <a class="card" href="${instagram}" target="_blank">
-<div class="social-circle">
+<div class="social-circle instagram-circle">
 <i class="fa-brands fa-instagram instagram-icon"></i>
 </div>
 </a>
@@ -472,8 +527,8 @@ if(tiktok && tiktok !== "NO"){
 
 socialButtons += `
 <a class="card" href="${tiktok}" target="_blank">
-<div class="social-circle">
-<i class="fa-brands fa-tiktok tiktok-icon"></i>
+<div class="social-circle instagram-circle">
+<i class="fa-brands fa-instagram instagram-icon"></i>
 </div>
 </a>
 `;
@@ -485,7 +540,7 @@ if(snapchat && snapchat !== "NO"){
 
 socialButtons += `
 <a class="card" href="${snapchat}" target="_blank">
-<div class="social-circle">
+<div class="social-circle snapchat-circle">
 <i class="fa-brands fa-snapchat snapchat-icon"></i>
 </div>
 </a>
@@ -498,7 +553,7 @@ if(telegram && telegram !== "NO"){
 
 socialButtons += `
 <a class="card" href="${telegram}" target="_blank">
-<div class="social-circle">
+<div class="social-circle telegram-circle">
 <i class="fa-brands fa-telegram telegram-icon"></i>
 </div>
 </a>
@@ -511,7 +566,7 @@ if(website && website !== "NO"){
 
 socialButtons += `
 <a class="card" href="${website}" target="_blank">
-<div class="social-circle">
+<div class="social-circle website-circle">
 <i class="fa-solid fa-globe website-icon"></i>
 </div>
 </a>
@@ -524,7 +579,7 @@ if(email && email !== "NO"){
 
 socialButtons += `
 <a class="card" href="mailto:${email}">
-<div class="social-circle">
+<div class="social-circle email-circle">
 <i class="fa-solid fa-envelope email-icon"></i>
 </div>
 </a>
